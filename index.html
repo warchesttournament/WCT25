@@ -5,118 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Турнирная таблица и Расписание</title>
     <style>
-        * {
-            font-family: 'Fjalla One', sans-serif;
-            margin: 0;
-            border: 0;
-            padding: 0;
-            color: white;
-        }
-
-        html {
-            background-color: #000000;
-            background-image: url('https://cf.geekdo-images.com/ttgxUXCDJRodwKgb-wBeRQ__imagepage/img/mTrPFJ0YYNuIuGBzdd7E0-gmAnk=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4796874.jpg');
-            background-size: cover;
-            background-position: center center;
-        }
-
-        .ptable table {
-            background-color: rgba(0, 0, 0, 0.75);
-            margin: 30px auto;
+        table {
+            width: 100%;
             border-collapse: collapse;
-            width: 80%;
+            margin: 20px 0;
         }
-
-        .ptable {
-            background-color: rgba(0, 0, 0, 0.5);
-            margin: 0px 0% 30px 0%;
-        }
-
         th, td {
-            padding: 10px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
             text-align: center;
         }
-
         th {
-            background-color: black;
-            color: #ffe221;
+            background-color: #f2f2f2;
         }
-
-        .headin {
-            text-align: center;
-            text-decoration: none;
-            color: #ffe221;
-            margin: 30px;
-            display: block;
+        .match-details {
+            padding: 5px 10px;
+            background-color: #f9f9f9;
         }
-
-        .wpos {
-            text-align: center;
-        }
-
-        .wpos td {
-            color: #77ff21;
-        }
-
-        .pos {
-            text-align: center;
-        }
-
-        .pos td {
-            color: #ff7b21;
-        }
-
-        table .col {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid #FFFFFF;
-        }
-
-        .wpos:hover {
-            background-color: #77ff21;
-        }
-
-        .wpos:hover td {
-            color: #000000;
-        }
-
-        .pos:hover {
-            background-color: #ff7b21;
-        }
-
-        .pos:hover td {
-            color: #000000;
-        }
-
-        /* Стиль для заголовков таблиц */
-        .ptable h2 {
-            background-color: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            color: #ffe221;
-            margin-bottom: 10px;
-            font-size: 24px;
-            border-bottom: 2px solid #ffe221;
-            padding-bottom: 5px;
-        }
-
-        /* Стили для ссылок "Подробнее" */
-        a.toggle-schedule {
-            color: #ffe221;
-            text-decoration: none;
-            font-size: 18px;
-            margin-top: 10px;
-            display: inline-block;
-        }
-
-        a.toggle-schedule:hover {
-            text-decoration: underline;
-        }
-
-        /* Стиль для скрытого расписания */
         .schedule-container {
-            display: none;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.75);
-            margin-top: 10px;
+            display: none; /* Скрыть расписание по умолчанию */
         }
     </style>
 </head>
