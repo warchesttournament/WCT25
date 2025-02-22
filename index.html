@@ -223,8 +223,8 @@
                         matchDiv.innerHTML = `
                             <p><strong>${match.player1} против ${match.player2}</strong></p>
                             <ul>
-                                <li>1-й тайм: ${match.matches[0].score1} : ${match.matches[0].score2}</li>
-                                <li>2-й тайм: ${match.matches[1].score1} : ${match.matches[1].score2}</li>
+                                <li>${match.matches[0].score1} : ${match.matches[0].score2}</li>
+                                <li>${match.matches[1].score1} : ${match.matches[1].score2}</li>
                             </ul>
                         `;
                         scheduleDiv.appendChild(matchDiv);
