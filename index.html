@@ -5,71 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Турнирная таблица и Расписание</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
         th, td {
-            padding: 8px 12px;
+            padding: 12px;
             border: 1px solid #ddd;
             text-align: center;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #5cb85c;
+            color: white;
         }
-        .match-details {
-            padding: 5px 10px;
+        tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .match-details {
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .toggle-schedule {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .toggle-schedule:hover {
+            text-decoration: underline;
+        }
         .schedule-container {
-            display: none; /* Скрыть расписание по умолчанию */
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Турнирная таблица</h1>
-    <h2>Группа A</h2>
-    <table id="groupA">
-        <thead>
-            <tr>
-                <th>Игрок</th>
-                <th>Матчи</th>
-                <th>Победы</th>
-                <th>Ничьи</th>
-                <th>Поражения</th>
-                <th>Разница</th>
-                <th>Очки</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="container">
+        <h1>Турнирная таблица</h1>
+        <h2>Группа A</h2>
+        <table id="groupA">
+            <thead>
+                <tr>
+                    <th>Игрок</th>
+                    <th>Матчи</th>
+                    <th>Победы</th>
+                    <th>Ничьи</th>
+                    <th>Поражения</th>
+                    <th>Разница</th>
+                    <th>Очки</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
-    <a href="javascript:void(0)" id="toggleA" class="toggle-schedule">Подробнее</a>
-    <div id="scheduleA" class="schedule-container"></div>
+        <a href="javascript:void(0)" id="toggleA" class="toggle-schedule">Подробнее</a>
+        <div id="scheduleA" class="schedule-container"></div>
 
-    <h2>Группа B</h2>
-    <table id="groupB">
-        <thead>
-            <tr>
-                <th>Игрок</th>
-                <th>Матчи</th>
-                <th>Победы</th>
-                <th>Ничьи</th>
-                <th>Поражения</th>
-                <th>Разница</th>
-                <th>Очки</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <h2>Группа B</h2>
+        <table id="groupB">
+            <thead>
+                <tr>
+                    <th>Игрок</th>
+                    <th>Матчи</th>
+                    <th>Победы</th>
+                    <th>Ничьи</th>
+                    <th>Поражения</th>
+                    <th>Разница</th>
+                    <th>Очки</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
-    <a href="javascript:void(0)" id="toggleB" class="toggle-schedule">Подробнее</a>
-    <div id="scheduleB" class="schedule-container"></div>
+        <a href="javascript:void(0)" id="toggleB" class="toggle-schedule">Подробнее</a>
+        <div id="scheduleB" class="schedule-container"></div>
+    </div>
 
     <script>
-        // Функция для переключения видимости расписания
         function toggleSchedule(scheduleId) {
             const scheduleDiv = document.getElementById(scheduleId);
             if (scheduleDiv.style.display === 'none' || scheduleDiv.style.display === '') {
@@ -79,7 +120,6 @@
             }
         }
 
-        // Привязка обработчиков событий для ссылок "Подробнее"
         document.getElementById('toggleA').addEventListener('click', function() {
             toggleSchedule('scheduleA');
         });
@@ -87,48 +127,40 @@
             toggleSchedule('scheduleB');
         });
 
-        // Загрузка данных из data.json
         fetch('data/result.json')
             .then(response => response.json())
             .then(data => {
                 function calculateStats(group) {
                     const stats = {};
-
                     group.forEach(match => {
-                        console.log(match); // Выводим для отладки
-
                         const players = [match.player1, match.player2];
                         players.forEach(player => {
                             if (!stats[player]) {
                                 stats[player] = {
-                                    played: 0,  // Игры (пара матчей)
+                                    played: 0,
                                     wins: 0,
                                     draws: 0,
                                     losses: 0,
-                                    goalDifference: 0,  // Разница голов
+                                    goalDifference: 0,
                                     points: 0
                                 };
                             }
                         });
 
-                        // Логика для подсчета побед и ничьих по результатам двух матчей
                         let player1Wins = 0;
                         let player2Wins = 0;
 
                         match.matches.forEach((game) => {
                             if (game.score1 === null || game.score2 === null) {
-                                // Пропускаем игру, если хотя бы один из счетов null
                                 return;
                             }
 
                             const score1 = game.score1;
                             const score2 = game.score2;
 
-                            // Обновляем разницу голов
                             stats[match.player1].goalDifference += (score1 - score2);
                             stats[match.player2].goalDifference += (score2 - score1);
 
-                            // Подсчитываем победы для каждого игрока
                             if (score1 > score2) {
                                 player1Wins++;
                             } else if (score1 < score2) {
@@ -136,20 +168,18 @@
                             }
                         });
 
-                        // Увеличиваем количество игр, если оба матча были сыграны
                         if (player1Wins > 0 || player2Wins > 0) {
                             stats[match.player1].played++;
                             stats[match.player2].played++;
                         }
 
-                        // Логика для подсчета результатов по итогам двух матчей
                         if (player1Wins === 2) {
                             stats[match.player1].wins++;
-                            stats[match.player1].points += 2;
+                            stats[match.player1].points += 3;
                             stats[match.player2].losses++;
                         } else if (player2Wins === 2) {
                             stats[match.player2].wins++;
-                            stats[match.player2].points += 2;
+                            stats[match.player2].points += 3;
                             stats[match.player1].losses++;
                         } else if (player1Wins === 1 && player2Wins === 1) {
                             stats[match.player1].draws++;
@@ -157,27 +187,25 @@
                             stats[match.player1].points++;
                             stats[match.player2].points++;
                         }
-
                     });
-
                     return stats;
                 }
 
                 function renderTable(group, groupName) {
                     const stats = calculateStats(group);
                     const tbody = document.querySelector(`#${groupName} tbody`);
-                    tbody.innerHTML = ''; // Очищаем tbody перед рендерингом новых данных
+                    tbody.innerHTML = '';
 
                     Object.keys(stats).forEach(player => {
                         const playerStats = stats[player];
                         const row = document.createElement('tr');
                         row.innerHTML = `
                             <td>${player}</td>
-                            <td>${playerStats.played}</td> <!-- Исправлено на played -->
+                            <td>${playerStats.played}</td>
                             <td>${playerStats.wins}</td>
                             <td>${playerStats.draws}</td>
                             <td>${playerStats.losses}</td>
-                            <td>${playerStats.goalDifference}</td> <!-- Исправлено на goalDifference -->
+                            <td>${playerStats.goalDifference}</td>
                             <td>${playerStats.points}</td>
                         `;
                         tbody.appendChild(row);
