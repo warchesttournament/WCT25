@@ -1,1 +1,91 @@
-{}
+{
+    "groupA": [
+        { 
+            "player1": "Митя", "player2": "Настя", 
+            "matches": [
+                { "score1": 6, "score2": 1 }, 
+                { "score1": 3, "score2": 6 }
+            ]
+        },
+        { 
+            "player1": "Митя", "player2": "Роман", 
+            "matches": [
+                { "score1": null, "score2": null }, 
+                { "score1": null, "score2": null }
+            ]
+        },
+        { 
+            "player1": "Митя", "player2": "Олег", 
+            "matches": [
+                { "score1": 6, "score2": 3 }, 
+                { "score1": 2, "score2": 6 }
+            ]
+        },
+        { 
+            "player1": "Настя", "player2": "Роман", 
+            "matches": [
+                { "score1": 3, "score2": 1 }, 
+                { "score1": 4, "score2": 0 }
+            ]
+        },
+        { 
+            "player1": "Настя", "player2": "Олег", 
+            "matches": [
+                { "score1": 6, "score2": 2 }, 
+                { "score1": 5, "score2": 3 }
+            ]
+        },
+        { 
+            "player1": "Роман", "player2": "Олег", 
+            "matches": [
+                { "score1": 3, "score2": 6 }, 
+                { "score1": 4, "score2": 5 }
+            ]
+        }
+    ],
+    "groupB": [
+        { 
+            "player1": "Егор", "player2": "Дима", 
+            "matches": [
+                { "score1": 6, "score2": 2 }, 
+                { "score1": 5, "score2": 1 }
+            ]
+        },
+        { 
+            "player1": "Егор", "player2": "Руслан", 
+            "matches": [
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 1, "score2": 1 }
+            ]
+        },
+        { 
+            "player1": "Егор", "player2": "Андрей", 
+            "matches": [
+                { "score1": 6, "score2": 3 }, 
+                { "score1": 4, "score2": 2 }
+            ]
+        },
+        { 
+            "player1": "Дима", "player2": "Руслан", 
+            "matches": [
+                { "score1": 3, "score2": 1 }, 
+                { "score1": 2, "score2": 3 }
+            ]
+        },
+        { 
+            "player1": "Дима", "player2": "Андрей", 
+            "matches": [
+                { "score1": 6, "score2": 4 }, 
+                { "score1": 5, "score2": 6 }
+            ]
+        },
+        { 
+            "player1": "Руслан", "player2": "Андрей", 
+            "matches": [
+                { "score1": 1, "score2": 2 }, 
+                { "score1": 0, "score2": 3 }
+            ]
+        }
+    ]
+}
+
