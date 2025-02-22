@@ -1,0 +1,86 @@
+* {
+	font-family: Fjalla One;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	color: white;
+}
+
+html {
+	background-color: #000000;
+    background-image: url('https://cf.geekdo-images.com/ttgxUXCDJRodwKgb-wBeRQ__opengraph_letterbox/img/xPrVsJjGdi3olU9X8m_QU_hC8UQ=/fit-in/1200x630/filters:fill(auto):strip_icc()/pic4796874.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.ptable table {
+	margin: 30px auto;
+	border-collapse: collapse;
+}
+
+.ptable {
+	margin: 0px 0% 30px 0%;
+}
+
+th, td {
+	padding: 10px;
+}
+
+th {
+	background-color: black;
+	color: #ffe221;
+}
+
+.headin {
+	text-align: center;
+	text-decoration: none;
+	color: #ffe221;
+	margin: 30px;
+	display: block;
+}
+
+.wpos {
+	text-align: center;
+}
+
+.wpos td {
+	color: #77ff21;
+}
+
+.pos {
+	text-align: center;
+}
+
+.pos td {
+	color: #ff7b21;
+}
+
+table .col {
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.wpos:hover {
+	background-color: #77ff21;
+}
+
+.wpos:hover td {
+	color: #000000;
+}
+
+.pos:hover {
+	background-color: #ff7b21;
+}
+
+.pos:hover td {
+	color: #000000;
+}
+
+/* Стиль для заголовков таблиц */
+.ptable h2 {
+	text-align: center;
+	color: #ffe221;
+	margin-bottom: 10px;
+	font-size: 24px;
+	border-bottom: 2px solid #ffe221;
+	padding-bottom: 5px;
+}
