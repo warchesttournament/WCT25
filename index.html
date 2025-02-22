@@ -145,11 +145,11 @@
                         // Логика для подсчета результатов по итогам двух матчей
                         if (player1Wins === 2) {
                             stats[match.player1].wins++;
-                            stats[match.player1].points += 3;
+                            stats[match.player1].points += 2;
                             stats[match.player2].losses++;
                         } else if (player2Wins === 2) {
                             stats[match.player2].wins++;
-                            stats[match.player2].points += 3;
+                            stats[match.player2].points += 2;
                             stats[match.player1].losses++;
                         } else if (player1Wins === 1 && player2Wins === 1) {
                             stats[match.player1].draws++;
