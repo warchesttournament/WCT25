@@ -46,8 +46,7 @@
         <tbody></tbody>
     </table>
 
-    <h2>Расписание матчей Группы A</h2>
-    <span id="toggleA" class="toggle-schedule">Подробнее</span>
+    <a href="javascript:void(0)" id="toggleA" class="toggle-schedule">Подробнее</a>
     <div id="scheduleA" class="schedule-container"></div>
 
     <h2>Группа B</h2>
@@ -66,8 +65,7 @@
         <tbody></tbody>
     </table>
 
-    <h2>Расписание матчей Группы B</h2>
-    <span id="toggleB" class="toggle-schedule">Подробнее</span>
+    <a href="javascript:void(0)" id="toggleB" class="toggle-schedule">Подробнее</a>
     <div id="scheduleB" class="schedule-container"></div>
 
     <script>
@@ -90,7 +88,7 @@
         });
 
         // Загрузка данных из data.json
-        fetch('results.json')
+        fetch('data/result.json')
             .then(response => response.json())
             .then(data => {
                 function calculateStats(group) {
