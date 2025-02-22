@@ -17,7 +17,7 @@ document.getElementById('toggleB').addEventListener('click', function() {
 });
 
 // Загрузка данных из data.json
-fetch('results.json')
+fetch('data/result.json')
     .then(response => response.json())
     .then(data => {
         function calculateStats(group) {
