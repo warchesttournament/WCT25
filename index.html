@@ -95,8 +95,6 @@
                     const stats = {};
 
                     group.forEach(match => {
-                        console.log(match); // Выводим для отладки
-
                         const players = [match.player1, match.player2];
                         players.forEach(player => {
                             if (!stats[player]) {
@@ -112,12 +110,7 @@
                             }
                         });
 
-                        match.matches.forEach((scores) => {
-                            if (!Array.isArray(scores) || scores.length !== 2) {
-                                console.warn(`Некорректные данные для матча между ${match.player1} и ${match.player2}:`, scores);
-                                return; // Пропускаем некорректные данные
-                            }
-
+                        match.matches.forEach(scores => {
                             const [score1, score2] = scores;
 
                             if (score1 > score2) {
@@ -175,11 +168,12 @@
                     group.forEach(match => {
                         const matchDiv = document.createElement('div');
                         matchDiv.classList.add('match-details');
-                        matchDiv.innerHTML = `
+                        matchDiv.innerHTML = ` 
                             <p><strong>${match.player1} против ${match.player2}</strong></p>
                             <ul>
-                                <li>1-й тайм: ${match.matches[0].score1} : ${match.matches[0].score2}</li>
-                                <li>2-й тайм: ${match.matches[1].score1} : ${match.matches[1].score2}</li>
+                                ${match.matches.map((score, index) => `
+                                    <li>${index + 1}-й тайм: ${score.score1} : ${score.score2}</li>
+                                `).join('')}
                             </ul>
                         `;
                         scheduleDiv.appendChild(matchDiv);
