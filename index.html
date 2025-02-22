@@ -116,9 +116,9 @@
                         let player2Wins = 0;
 
                         match.matches.forEach((game) => {
-                            if (typeof game.score1 !== 'number' || typeof game.score2 !== 'number') {
-                                console.warn(`Некорректные данные для матча между ${match.player1} и ${match.player2}:`, game);
-                                return; // Пропускаем некорректные данные
+                            if (game.score1 === null || game.score2 === null) {
+                                // Пропускаем игру, если хотя бы один из счетов null
+                                return;
                             }
 
                             const score1 = game.score1;
@@ -136,9 +136,11 @@
                             }
                         });
 
-                        // Увеличиваем количество игр, так как два матча считаются как одна игра
-                        stats[match.player1].played++;
-                        stats[match.player2].played++;
+                        // Увеличиваем количество игр, если оба матча были сыграны
+                        if (player1Wins > 0 || player2Wins > 0) {
+                            stats[match.player1].played++;
+                            stats[match.player2].played++;
+                        }
 
                         // Логика для подсчета результатов по итогам двух матчей
                         if (player1Wins === 2) {
