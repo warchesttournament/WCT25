@@ -8,7 +8,7 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #564844;
 }
 
 /* Контейнер */
@@ -16,7 +16,7 @@ body {
     width: 90%;
     margin: 20px auto;
     max-width: 880px;
-    background-color: rgb(243, 242, 236);
+    background-color: #f3f2ec;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -26,8 +26,8 @@ body {
 /* Логотип */
 .logo {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 25px;
+    left: 25px;
     width: 60px;
     height: auto;
 }
@@ -71,6 +71,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+	background-color: #f3f2ec;
 }
 
 table, th, td {
