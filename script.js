@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let player1Wins = 0, player2Wins = 0;
                     match.matches.forEach(game => {
-                        if (game.score1 === null || game.score2 === null) return;
+                        if (game.score1 === null || game.score2 === null || (game.score1 === 0 && game.score2 === 0)) return;
                         stats[match.player1].goalDifference += (game.score1 - game.score2);
                         stats[match.player2].goalDifference += (game.score2 - game.score1);
                         game.score1 > game.score2 ? player1Wins++ : game.score1 < game.score2 ? player2Wins++ : null;
@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         stats[match.player2].played++;
                     }
 
-                    if (player1Wins === 2) {
+                    if (player1Wins > player2Wins) {
                         stats[match.player1].wins++;
                         stats[match.player1].points += 2;
                         stats[match.player2].losses++;
-                    } else if (player2Wins === 2) {
+                    } else if (player2Wins > player1Wins) {
                         stats[match.player2].wins++;
                         stats[match.player2].points += 2;
                         stats[match.player1].losses++;
-                    } else if (player1Wins === 1 && player2Wins === 1) {
+                    } else if (player1Wins === player2Wins && player1Wins > 0) {
                         stats[match.player1].draws++;
                         stats[match.player2].draws++;
                         stats[match.player1].points++;
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
                     tbody.appendChild(row);
                 });
+                return stats;
             }
 
             function renderSchedule(group, groupName) {
@@ -88,10 +89,42 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            renderTable(data.groupA, 'groupA');
-            renderTable(data.groupB, 'groupB');
+            function renderSemifinalAndFinal(groupAStats, groupBStats) {
+                const topA = Object.keys(groupAStats).sort((a, b) => groupAStats[b].points - groupAStats[a].points).slice(0, 2);
+                const topB = Object.keys(groupBStats).sort((a, b) => groupBStats[b].points - groupBStats[a].points).slice(0, 2);
+
+                const semifinalMatches = [
+                    { player1: topA[0], player2: topB[1] },
+                    { player1: topB[0], player2: topA[1] }
+                ];
+
+                const semifinalTable = document.querySelector("#semifinal tbody");
+                semifinalTable.innerHTML = '';
+                semifinalMatches.forEach(match => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${match.player1}</td>
+                        <td>—</td>
+                        <td>${match.player2}</td>
+                    `;
+                    semifinalTable.appendChild(row);
+                });
+
+                const finalTable = document.querySelector("#final tbody");
+                finalTable.innerHTML = `
+                    <tr>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                `;
+            }
+
+            const groupAStats = renderTable(data.groupA, 'groupA');
+            const groupBStats = renderTable(data.groupB, 'groupB');
             renderSchedule(data.groupA, 'A');
             renderSchedule(data.groupB, 'B');
+            renderSemifinalAndFinal(groupAStats, groupBStats);
         })
         .catch(error => console.error('Ошибка загрузки данных:', error));
 });
