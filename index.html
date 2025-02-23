@@ -7,9 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Фиксированный хедер -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="https://github.com/warchesttournament/WCT25/blob/main/data/result.json" target="_blank" class="logo-link">
+                <img src="https://warchestonline.com/static/img/warchest_logo_hq.09fc262.png" class="logo" alt="War Chest Logo">
+            </a>
+            <nav class="nav-links">
+            </nav>
+        </div>
+    </header>
     <div class="container">
-        <header>
-            <img src="https://warchestonline.com/static/img/warchest_logo_hq.09fc262.png" class="logo" alt="War Chest Logo">
+        <section id="groupA-section">
             <div class="title-wrapper">
                 <span class="bracket-wrapper">
                     <img src="https://warchestonline.com/static/img/celtic_bracket.8346ea3.png" class="bracket" alt="Bracket Left">
@@ -19,9 +28,6 @@
                     <img src="https://warchestonline.com/static/img/celtic_bracket.8346ea3.png" class="bracket flipped" alt="Bracket Right">
                 </span>
             </div>
-        </header>
-        
-        <section id="groupA-section">
             <h2>Group A</h2>
             <table id="groupA">
                 <thead>
@@ -60,7 +66,34 @@
             <a href="javascript:void(0)" id="toggleB" class="toggle-schedule">Details</a>
             <div id="scheduleB" class="schedule-container"></div>
         </section>
-    </div>
+
+        <section id="semifinal-section">
+            <h2>Semifinal</h2>
+            <table id="semifinal">
+                <thead>
+                    <tr>
+                        <th>Player 1</th>
+                        <th>Score</th>
+                        <th>Player 2</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        
+        <section id="final-section">
+            <h2>Final</h2>
+            <table id="final">
+                <thead>
+                    <tr>
+                        <th>Player 1</th>
+                        <th>Score</th>
+                        <th>Player 2</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
 
     <script src="script.js"></script>
 </body>
