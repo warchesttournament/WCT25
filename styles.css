@@ -27,7 +27,7 @@ body {
 /* Логотип */
 .logo {
     display: block;
-    margin: 25 px auto 25px auto; /* Центрируем и добавляем отступ снизу */
+    margin: 25px auto 25px auto; /* Центрируем и добавляем отступ снизу */
     width: 60px;
     height: auto;
 }
