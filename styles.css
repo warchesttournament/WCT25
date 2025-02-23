@@ -155,7 +155,7 @@ tbody tr:hover {
         transform: translateX(-50%);
         width: 50px;
         height: auto;
-        margin-bottom: 15px; /* Отступ снизу */
+        margin-bottom: 25px; /* Отступ снизу */
     }
 
     .title {
