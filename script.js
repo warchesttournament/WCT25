@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const matchDiv = document.createElement('div');
                     matchDiv.classList.add('match-details');
                     matchDiv.innerHTML = `
-                        <p><strong>${match.player1} vs ${match.player2}</strong></p>
+                        <p><strong>${match.player1} ⚔️ ${match.player2}</strong></p>
                         <ul>
                             <li>${match.matches[0].score1} : ${match.matches[0].score2}</li>
                             <li>${match.matches[1].score1} : ${match.matches[1].score2}</li>
