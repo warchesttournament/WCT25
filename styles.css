@@ -21,15 +21,17 @@ body {
     padding: 20px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     position: relative;
+    overflow-x: auto; /* Добавлено для обеспечения горизонтальной прокрутки таблицы */
 }
 
 /* Логотип */
 .logo {
     position: absolute;
-    top: 25px;
-    left: 25px;
+    top: 10px;
+    left: 10px;
     width: 60px;
     height: auto;
+    z-index: 1; /* Чтобы логотип не перекрывал другие элементы */
 }
 
 /* Обертка для заголовка */
@@ -71,7 +73,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-	background-color: #f3f2ec;
+    background-color: #f3f2ec;
 }
 
 table, th, td {
@@ -84,8 +86,8 @@ th, td {
 }
 
 thead {
-	background-color: #68b198;
-	color: white;
+    background-color: #68b198;
+    color: white;
 }
 
 tbody tr:nth-child(even) {
@@ -103,56 +105,67 @@ tbody tr:hover {
 }
 
 .match-details {
-	padding: 10px 0px 10px 0px;
-	background-color: #d2dbdb;
-	width: 100%;
-	max-width: 800px;
-	margin: 10px auto;
-	border-collapse: collapse;
-	border-radius: 5px;
-	text-align: center;
+    padding: 10px 0px 10px 0px;
+    background-color: #d2dbdb;
+    width: 100%;
+    max-width: 800px;
+    margin: 10px auto;
+    border-collapse: collapse;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .match-details:hover {
-	background-color: #ffdfb5;
+    background-color: #ffdfb5;
 }
 
 .match-details ul {
-	padding: 0;
+    padding: 0;
     margin: 0;
     list-style: none;
-	list-style-type: none;
 }
 
+/* Кнопка для переключения расписания */
 .toggle-schedule {
-	display: block;
-	text-align: center;
-	color: #7aa0ff;
-	text-decoration: none;
-	font-size: 16px;
-	margin: 10px 0;
+    display: block;
+    text-align: center;
+    color: #7aa0ff;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px 0;
 }
 
 .toggle-schedule:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
+    /* Уменьшаем отступы внутри контейнера */
     .container {
-        width: 95%;
+        width: 100%;
         padding: 15px;
     }
 
+    /* Логотип размещаем выше заголовка */
     .logo {
+        position: static;
         width: 50px;
+        margin-bottom: 10px;
     }
 
     .title {
         font-size: 22px;
     }
 
+    /* Уменьшаем размер шрифта таблицы */
     table {
         font-size: 12px;
+        overflow-x: auto; /* Добавлено для прокрутки таблицы */
+    }
+
+    /* Убираем отступы в таблице и делаем ее более компактной */
+    th, td {
+        padding: 8px;
     }
 }
