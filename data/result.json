@@ -86,6 +86,34 @@
                 { "score1": 0, "score2": 0 }
             ]
         }
+    ],
+    "semifinal": [
+        { 
+            "player1": "Митя", "player2": "Егор", 
+            "matches": [
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }
+            ]
+        },
+        { 
+            "player1": "Дима", "player2": "Настя", 
+            "matches": [
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }
+            ]
+        }
+    ],
+    "final": [
+        { 
+            "player1": "???", "player2": "???", 
+            "matches": [
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }, 
+                { "score1": 0, "score2": 0 }
+            ]
+        }
     ]
 }
 
