@@ -26,12 +26,10 @@ body {
 
 /* Логотип */
 .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    display: block;
+    margin: 0 auto 20px auto; /* Центрируем и добавляем отступ снизу */
     width: 60px;
     height: auto;
-    z-index: 1; /* Чтобы логотип не перекрывал другие элементы */
 }
 
 /* Обертка для заголовка */
@@ -74,6 +72,7 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #f3f2ec;
+    table-layout: fixed; /* Добавлено для равномерного распределения столбцов */
 }
 
 table, th, td {
@@ -83,6 +82,7 @@ table, th, td {
 th, td {
     padding: 10px;
     text-align: center;
+    word-wrap: break-word; /* Тексты в ячейках будут переноситься, чтобы не выходить за пределы */
 }
 
 thead {
@@ -147,25 +147,31 @@ tbody tr:hover {
         padding: 15px;
     }
 
-    /* Логотип размещаем выше заголовка */
+    /* Логотип размещаем по центру сверху */
     .logo {
-        position: static;
         width: 50px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     .title {
         font-size: 22px;
     }
 
-    /* Уменьшаем размер шрифта таблицы */
+    /* Таблица: добавляем горизонтальную прокрутку и уменьшаем шрифт */
     table {
         font-size: 12px;
-        overflow-x: auto; /* Добавлено для прокрутки таблицы */
+        width: 100%;
+        overflow-x: auto;
+        display: block; /* Делает таблицу блочной для прокрутки */
     }
 
-    /* Убираем отступы в таблице и делаем ее более компактной */
     th, td {
         padding: 8px;
+    }
+
+    /* Убираем длинные строки, чтобы таблица не выходила за пределы экрана */
+    th, td {
+        word-wrap: break-word;
+        max-width: 150px; /* Ограничиваем ширину столбцов */
     }
 }
