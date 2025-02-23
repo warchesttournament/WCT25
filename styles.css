@@ -149,13 +149,12 @@ tbody tr:hover {
 
     /* Логотип размещаем по центру сверху */
     .logo {
-        /*position: absolute;*/
+        position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
         width: 50px;
         height: auto;
-        margin-bottom: 25px; /* Отступ снизу */
     }
 
     .title {
